@@ -11,8 +11,8 @@ public class Doctor {
 	private String specialty;
 	ArrayList<Appointment> apointments = new ArrayList<Appointment>();
 	
-	public Doctor(String firstName, String lastName, String phoneNumber, String email, String specialty) {
-		setDoctorId();
+	public Doctor(int doctorId, String firstName, String lastName, String phoneNumber, String email, String specialty) {
+		setDoctorId(doctorId);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setPhoneNumber(phoneNumber);
@@ -25,7 +25,11 @@ public class Doctor {
 	 * @return doctorId
 	 */
 	public int getDoctorId() {
-		return this.doctorId;
+		if(doctorId > 1000 && doctorId < 100000) {
+			return this.doctorId;
+		} else {
+			return 1001;
+		}
 	}
 	/**
 	 * 
@@ -98,8 +102,9 @@ public class Doctor {
 	/**
 	 * random doctorId
 	 */
-	public void setDoctorId() {
-		this.doctorId = (int)(Math.floor((Math.random() * 90001) + 1000)); //??
+	public void setDoctorId(int doctorId) {
+		this.doctorId = doctorId;
+				//(int)(Math.floor((Math.random() * 90001) + 1000)); //??
 		
 	}
 	/**
