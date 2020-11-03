@@ -89,6 +89,14 @@ public class Doctor {
 	}
 	/**
 	 * 
+	 * @return
+	 */
+	public ArrayList<Appointment> getAppointment() {
+		return apointments;
+	}
+	
+	/**
+	 * 
 	 */
 	public void setDoctorId() {
 		this.doctorId = (int)(Math.floor((Math.random() * 90001) + 1000));
@@ -132,6 +140,14 @@ public class Doctor {
 	 */
 	public void setSpecialty(String specialty) {
 		this.specialty = specialty;
+		
+	}
+	/**
+	 * 
+	 * @param apointments
+	 */
+	public void setAppointment(ArrayList<Appointment> apointments) {
+		this.apointments = apointments;
 		
 	}
 	@Override
