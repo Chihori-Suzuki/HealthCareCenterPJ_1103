@@ -11,7 +11,7 @@ public class Doctor {
 	private String specialty;
 	ArrayList<Appointment> apointments = new ArrayList<Appointment>();
 	
-	public Doctor(String doctorId, String firstName, String lastName, String phoneNumber, String email, String specialty) {
+	public Doctor(String firstName, String lastName, String phoneNumber, String email, String specialty) {
 		setDoctorId();
 		setFirstName(firstName);
 		setLastName(lastName);
@@ -99,7 +99,7 @@ public class Doctor {
 	 * random doctorId
 	 */
 	public void setDoctorId() {
-		this.doctorId = (int)(Math.floor((Math.random() * 90001) + 1000));
+		this.doctorId = (int)(Math.floor((Math.random() * 90001) + 1000)); //??
 		
 	}
 	/**
