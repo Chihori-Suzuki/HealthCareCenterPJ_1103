@@ -22,14 +22,14 @@ public class Doctor {
 	
 	/**
 	 * 
-	 * @return
+	 * @return doctorId
 	 */
 	public int getDoctorId() {
 		return this.doctorId;
 	}
 	/**
 	 * 
-	 * @return
+	 * @return firstName
 	 */
 	public String getFirstName() {
 		
@@ -41,7 +41,7 @@ public class Doctor {
 	}
 	/**
 	 * 
-	 * @return
+	 * @return lastName
 	 */
 	public String getLastName() {
 		
@@ -53,7 +53,7 @@ public class Doctor {
 	}
 	/**
 	 * 
-	 * @return
+	 * @return phoneNumber
 	 */
 	public String getPhoneNumber() {
 		
@@ -65,7 +65,7 @@ public class Doctor {
 	}
 	/**
 	 * 
-	 * @return
+	 * @return email
 	 */
 	public String getEmail() {
 		
@@ -77,7 +77,7 @@ public class Doctor {
 	}
 	/**
 	 * 
-	 * @return
+	 * @return specialty
 	 */
 	public String getSpecialty() {
 		
@@ -89,14 +89,14 @@ public class Doctor {
 	}
 	/**
 	 * 
-	 * @return
+	 * @return apointments
 	 */
 	public ArrayList<Appointment> getAppointment() {
 		return apointments;
 	}
 	
 	/**
-	 * 
+	 * random doctorId
 	 */
 	public void setDoctorId() {
 		this.doctorId = (int)(Math.floor((Math.random() * 90001) + 1000));
