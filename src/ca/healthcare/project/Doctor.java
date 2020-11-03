@@ -9,15 +9,16 @@ public class Doctor {
 	private String phoneNumber;
 	private String email;
 	private String specialty;
-	ArrayList<Appointment> apointments = new ArrayList<Appointment>();
+	private ArrayList<Appointment> apointments = new ArrayList<Appointment>();
 	
-	public Doctor(int doctorId, String firstName, String lastName, String phoneNumber, String email, String specialty) {
+	public Doctor(int doctorId, String firstName, String lastName, String phoneNumber, String email, String specialty, ArrayList<Appointment> apointments) {
 		setDoctorId(doctorId);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setPhoneNumber(phoneNumber);
 		setEmail(email);
 		setSpecialty(specialty);
+		setAppointment(apointments);
 	}
 	
 	/**
