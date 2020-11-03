@@ -9,10 +9,15 @@ public class Doctor {
 	private String phoneNumber;
 	private String email;
 	private String specialty;
-	ArrayList<Doctor> apointment = new ArrayList<Doctor>();
+	ArrayList<Appointment> apointments = new ArrayList<Appointment>();
 	
 	public Doctor(String doctorId, String firstName, String lastName, String phoneNumber, String email, String specialty) {
-		
+		setDoctorId();
+		setFirstName(firstName);
+		setLastName(lastName);
+		setPhoneNumber(phoneNumber);
+		setEmail(email);
+		setSpecialty(specialty);
 	}
 	
 	/**
@@ -134,7 +139,7 @@ public class Doctor {
 		return "Doctor Id : " + doctorId + 
 				"\nFirst Name" + firstName + 
 				"\nLast Name : " + lastName + 
-				"\nPhone Number : " + phoneNumber
+				"\nPhone Number : " + phoneNumber +
 				"\nEmail : " + email;
 	}
 	
