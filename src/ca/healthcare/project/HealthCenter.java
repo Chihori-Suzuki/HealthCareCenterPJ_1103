@@ -29,12 +29,13 @@ public class HealthCenter {
 	public static String listOfAppointment(int doctorId,  ArrayList<Doctor> doctors) {
 		for(Doctor d : doctors) {
 			if(d.getDoctorId() == doctorId) {
-				for (Appointment a : d.getAppointment()) {
-					return "Appointment Date : " + a.getAppointmentDate() +
+				for (Appointment a : d.getAppointment()) {        //incorrect 
+					System.out.println("Appointment Date : " + a.getAppointmentDate() +
 							"\nAppointment Time : " + a.getAppointmentTime() + 
 							"\nFirst name : " + a.getPatient().getFirstName() + 
-							"\nLast name : " + a.getPatient().getLastName();
+							"\nLast name : " + a.getPatient().getLastName() + "\n");
 				}
+				return "";
 			}
 		}
 		return "Out of the List";
@@ -131,7 +132,7 @@ public class HealthCenter {
 					if (!d.equals(null)) break;// Check the Doctor ID
 				}
 				d.getAppointment().add(patientApp); //add the Appointment
-				System.out.println(d.toString()); //incorect
+				System.out.println(d.getAppointment()); //incorect
 				
 				break;
 			} else {
