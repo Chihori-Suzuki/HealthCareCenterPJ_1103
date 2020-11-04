@@ -101,10 +101,12 @@ public class HealthCenter {
 			} else if (user.equalsIgnoreCase("p")) { //if user is patient
 				// method is invoked
 				int patientId;
+				Patient p;
 				while(true){
 					System.out.println("Please enter your patient ID.");
 					patientId = input.nextInt();
-					if (!checkPatientId(patientId, patients).equals(null)) break;// Check the Doctor ID
+					p = checkPatientId(patientId, patients);
+					if (!p.equals(null)) break;// Check the Patient ID
 				}
 				System.out.println("Pleare enter the time and date");
 				System.out.print("Year : ");
@@ -132,7 +134,11 @@ public class HealthCenter {
 					if (!d.equals(null)) break;// Check the Doctor ID
 				}
 				d.getAppointment().add(patientApp); //add the Appointment
-				System.out.println(d.getAppointment()); //incorect
+				//Sysout the detail of appointment
+				System.out.println("Your appointment : " + appointDay + " " + appointTime +
+						"\nFirst name : " + p.getFirstName() + 
+						"\nLast name : " + p.getLastName() +
+						"\nDoctor name : " + d.getFirstName() + " " + d.getLastName()); 
 				
 				break;
 			} else {
