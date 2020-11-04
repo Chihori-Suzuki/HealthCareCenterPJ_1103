@@ -13,7 +13,7 @@ public class HealthCenter {
 				return d;
 			}
 		}
-		System.out.println("It's an incorrect ID");
+		System.out.println("It's an incorrect doctor ID");
 		return null;
 	}
 	public static Patient checkPatientId(int patienId, ArrayList<Patient> patients) {
@@ -22,7 +22,7 @@ public class HealthCenter {
 				return p;
 			}
 		}
-		System.out.println("It's an incorrect ID");
+		System.out.println("It's an incorrect patient ID");
 		return null;
 	}
 	
@@ -129,7 +129,7 @@ public class HealthCenter {
 					if (!d.equals(null)) break;// Check the Doctor ID
 				}
 				d.getAppointment().add(patientApp);
-				d.toString();
+				System.out.println(d.toString());
 				
 				break;
 			} else {

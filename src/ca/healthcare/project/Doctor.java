@@ -163,7 +163,7 @@ public class Doctor {
 				"\nLast Name : " + lastName + 
 				"\nPhone Number : " + phoneNumber +
 				"\nEmail : " + email + 
-				"\nAppointment : " + appointments ;
+				"\nAppointment : " + appointments.toString() ;
 	}
 	
 	
