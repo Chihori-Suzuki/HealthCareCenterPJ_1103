@@ -9,7 +9,7 @@ public class HealthCenter {
 	
 	public static Doctor checkDoctorId(int doctorId, ArrayList<Doctor> doctors) {
 		for(Doctor d : doctors) {
-			if(d.getDoctorId() == doctorId) {
+			if(d.getId() == doctorId) {
 				return d;
 			}
 		}
@@ -18,7 +18,7 @@ public class HealthCenter {
 	}
 	public static Patient checkPatientId(int patienId, ArrayList<Patient> patients) {
 		for(Patient p : patients) {
-			if(p.getPatientID() == patienId) {
+			if(p.getId() == patienId) {
 				return p;
 			}
 		}
@@ -28,7 +28,7 @@ public class HealthCenter {
 	
 	public static String listOfAppointment(int doctorId,  ArrayList<Doctor> doctors) {
 		for(Doctor d : doctors) {
-			if(d.getDoctorId() == doctorId) {
+			if(d.getId() == doctorId) {
 				for (Appointment a : d.getAppointment()) {        //incorrect 
 					System.out.println("Appointment Date : " + a.getAppointmentDate() +
 							"\nAppointment Time : " + a.getAppointmentTime() + 
@@ -72,10 +72,16 @@ public class HealthCenter {
 		appList.add(app1);
 		appList.add(app2);
 		
+		Appointment app3 = new Appointment(p1, LocalDate.of(2020, 12, 12), LocalTime.of(13, 00, 00));
+		Appointment app4 = new Appointment(p2, LocalDate.of(2020, 12, 12), LocalTime.of(13, 00, 00));
+		ArrayList<Appointment> appList2 = new ArrayList<Appointment>();
+		appList2.add(app3);
+		appList2.add(app4);
+		
 		Doctor d1 = new Doctor(1010, "Junayd", "Bevan", "111-222-3333", "AAA@gmail.com", "Specialty1", appList);
-		Doctor d2 = new Doctor(1020, "Darryl", "Humphries", "110-222-3333", "BBB@gmail.com", "Specialty2", appList);
+		Doctor d2 = new Doctor(1020, "Darryl", "Humphries", "110-222-3333", "BBB@gmail.com", "Specialty2", appList2);
 		Doctor d3 = new Doctor(1030, "Kaylen", "Carrillo", "111-111-3333", "CCC@gmail.com", "Specialty3", appList);
-		Doctor d4 = new Doctor(1040, "Jadon", "Glover", "111-999-3333", "DDD@gmail.com", "Specialty4", appList);
+		Doctor d4 = new Doctor(1040, "Jadon", "Glover", "111-999-3333", "DDD@gmail.com", "Specialty4", appList2);
 		doctors.add(d1);
 		doctors.add(d2);
 		doctors.add(d3);
@@ -133,9 +139,11 @@ public class HealthCenter {
 					if (!d.equals(null)) break;// Check the Doctor ID
 				}
 				d.getAppointment().add(patientApp); //add the Appointment
+//				System.out.println(d.getAppointment()); //test
+				
 				//Sysout the detail of appointment
 				System.out.println("Your appointment : " + appointDay + " " + appointTime +
-						"\nFirst name : " + p.getFirstName() + " " + p.getLastName() +
+						"\nName : " + p.getFirstName() + " " + p.getLastName() +
 						"\nDoctor name : " + d.getFirstName() + " " + d.getLastName()); 
 				
 				break;

@@ -47,7 +47,7 @@ public class Appointment {
 	}
 	
 	public String toString() {
-		return "Patient: " + patient + ". Appointment date: " + appointmentDate;
+		return "\nPatient: " + patient + ". Appointment date: " + appointmentDate;
 	}
 	
 }
