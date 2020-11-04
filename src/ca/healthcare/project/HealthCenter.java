@@ -22,7 +22,7 @@ public class HealthCenter {
 				return p;
 			}
 		}
-		System.out.println("It's an incorrect patient ID");
+		System.out.println("It's an incorrect patint ID");
 		return null;
 	}
 	
@@ -30,8 +30,10 @@ public class HealthCenter {
 		for(Doctor d : doctors) {
 			if(d.getDoctorId() == doctorId) {
 				for (Appointment a : d.getAppointment()) {
-					return "First name : " + a.getPatient().getFirstName() + 
-							"Last name : " + a.getPatient().getLastName();
+					return "Appointment Date : " + a.getAppointmentDate() +
+							"\nAppointment Time : " + a.getAppointmentTime() + 
+							"\nFirst name : " + a.getPatient().getFirstName() + 
+							"\nLast name : " + a.getPatient().getLastName();
 				}
 			}
 		}
@@ -129,7 +131,7 @@ public class HealthCenter {
 					if (!d.equals(null)) break;// Check the Doctor ID
 				}
 				d.getAppointment().add(patientApp);
-				System.out.println(d.toString());
+				System.out.println(d.toString()); //incorect
 				
 				break;
 			} else {

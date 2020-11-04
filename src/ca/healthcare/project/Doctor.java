@@ -164,6 +164,7 @@ public class Doctor {
 				"\nPhone Number : " + phoneNumber +
 				"\nEmail : " + email + 
 				"\nAppointment : " + appointments.toString() ;
+		
 	}
 	
 	

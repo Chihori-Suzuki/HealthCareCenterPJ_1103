@@ -26,6 +26,10 @@ public class Appointment {
 	public LocalDate getAppointmentDate() {
 		return appointmentDate;
 	}
+	
+	public LocalTime getAppointmentTime() {
+		return appointmentTime;
+	}
 	/**
 	 * @param patient the patient to set
 	 */
@@ -37,6 +41,9 @@ public class Appointment {
 	 */
 	public void setAppointmentDate(LocalDate appointmentDate) {
 		this.appointmentDate = appointmentDate;
+	}
+	public void setAppointmenTime(LocalTime appointmentTime) {
+		this.appointmentTime = appointmentTime;
 	}
 	
 	public String toString() {
