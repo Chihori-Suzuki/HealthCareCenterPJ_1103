@@ -1,39 +1,43 @@
 package ca.healthcare.project;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HealthCenter {
 	
-	public static boolean checkDoctorId(int doctorId, ArrayList<Doctor> doctors) {
+	public static Doctor checkDoctorId(int doctorId, ArrayList<Doctor> doctors) {
 		for(Doctor d : doctors) {
 			if(d.getDoctorId() == doctorId) {
-				return true;
+				return d;
 			}
 		}
 		System.out.println("It's an incorrect ID");
-		return false;
+		return null;
 	}
-	public static boolean checkPatientId(int patienId, ArrayList<Patient> patients) {
+	public static Patient checkPatientId(int patienId, ArrayList<Patient> patients) {
 		for(Patient p : patients) {
 			if(p.getPatientID() == patienId) {
-				return true;
+				return p;
 			}
 		}
 		System.out.println("It's an incorrect ID");
-		return false;
+		return null;
 	}
 	
-	public static boolean listOfAppointment(int doctorId,  ArrayList<Doctor> doctors) {
+	public static String listOfAppointment(int doctorId,  ArrayList<Doctor> doctors) {
 		for(Doctor d : doctors) {
 			if(d.getDoctorId() == doctorId) {
-				d.getAppointment();
-				return true;
+				for (Appointment a : d.getAppointment()) {
+					return "First name : " + a.getPatient().getFirstName() + 
+							"Last name : " + a.getPatient().getLastName();
+				}
 			}
 		}
-		return false;
+		return "Out of the List";
 	}
+	
 	
 	public static void main(String[] args) {
 
@@ -60,8 +64,8 @@ public class HealthCenter {
 		patients.add(p10);
 		
 		ArrayList<Doctor> doctors = new ArrayList<Doctor>();
-		Appointment app1 = new Appointment(p1, LocalDate.of(1975, 12, 12));
-		Appointment app2 = new Appointment(p2, LocalDate.of(1975, 12, 12));
+		Appointment app1 = new Appointment(p1, LocalDate.of(1975, 12, 12), LocalTime.of(12, 00, 00));
+		Appointment app2 = new Appointment(p2, LocalDate.of(1975, 12, 12), LocalTime.of(12, 00, 00));
 		ArrayList<Appointment> appList = new ArrayList<Appointment>();
 		appList.add(app1);
 		appList.add(app2);
@@ -86,21 +90,46 @@ public class HealthCenter {
 				while(true){
 					System.out.println("Please enter your doctor ID.");
 					doctorId = input.nextInt();
-					if (checkDoctorId(doctorId, doctors)) break;// Check the Doctor ID
+					if (!checkDoctorId(doctorId, doctors).equals(null)) break;// Check the Doctor ID
 				}
-				if(listOfAppointment(doctorId, doctors)) {
-					
-				}
+				System.out.println(listOfAppointment(doctorId, doctors));
 				break;
 				
 			} else if (user.equalsIgnoreCase("p")) { //if user is patient
 				// method is invoked
 				int patientId;
 				while(true){
-					System.out.println("Please enter your doctor ID.");
+					System.out.println("Please enter your patient ID.");
 					patientId = input.nextInt();
-					if (checkPatientId(patientId, patients)) break;// Check the Doctor ID
+					if (!checkPatientId(patientId, patients).equals(null)) break;// Check the Doctor ID
 				}
+				System.out.println("Pleare enter the time and date");
+				System.out.print("Year : ");
+				int year = input.nextInt();
+				System.out.print("Month : ");
+				int month = input.nextInt();
+				System.out.print("Day : ");
+				int day = input.nextInt();
+				System.out.print("time : ");
+				int time = input.nextInt();
+				System.out.print("minutes : ");
+				int min = input.nextInt();
+				
+				LocalDate appointDay = LocalDate.of(year, month, day);
+				LocalTime appointTime = LocalTime.of(time, min, 00);
+				Appointment patientApp = new Appointment(checkPatientId(patientId, patients), appointDay, appointTime);
+				
+				int doctorId;
+				Doctor d;
+				
+				while(true){
+					System.out.println("Please enter your doctor ID.");
+					doctorId = input.nextInt();
+					d = checkDoctorId(doctorId, doctors);
+					if (!d.equals(null)) break;// Check the Doctor ID
+				}
+				d.getAppointment().add(patientApp);
+				d.toString();
 				
 				break;
 			} else {

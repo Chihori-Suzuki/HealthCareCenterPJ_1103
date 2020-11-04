@@ -9,16 +9,16 @@ public class Doctor {
 	private String phoneNumber;
 	private String email;
 	private String specialty;
-	private ArrayList<Appointment> apointments = new ArrayList<Appointment>();
+	private ArrayList<Appointment> appointments = new ArrayList<Appointment>();
 	
-	public Doctor(int doctorId, String firstName, String lastName, String phoneNumber, String email, String specialty, ArrayList<Appointment> apointments) {
+	public Doctor(int doctorId, String firstName, String lastName, String phoneNumber, String email, String specialty, ArrayList<Appointment> appointments) {
 		setDoctorId(doctorId);
 		setFirstName(firstName);
 		setLastName(lastName);
 		setPhoneNumber(phoneNumber);
 		setEmail(email);
 		setSpecialty(specialty);
-		setAppointment(apointments);
+		setAppointment(appointments);
 	}
 	
 	/**
@@ -94,10 +94,10 @@ public class Doctor {
 	}
 	/**
 	 * 
-	 * @return apointments
+	 * @return appointments
 	 */
 	public ArrayList<Appointment> getAppointment() {
-		return apointments;
+		return appointments;
 	}
 	
 	/**
@@ -150,10 +150,10 @@ public class Doctor {
 	}
 	/**
 	 * 
-	 * @param apointments
+	 * @param appointments
 	 */
-	public void setAppointment(ArrayList<Appointment> apointments) {
-		this.apointments = apointments;
+	public void setAppointment(ArrayList<Appointment> appointments) {
+		this.appointments = appointments;
 		
 	}
 	@Override
@@ -162,7 +162,8 @@ public class Doctor {
 				"\nFirst Name" + firstName + 
 				"\nLast Name : " + lastName + 
 				"\nPhone Number : " + phoneNumber +
-				"\nEmail : " + email;
+				"\nEmail : " + email + 
+				"\nAppointment : " + appointments ;
 	}
 	
 	

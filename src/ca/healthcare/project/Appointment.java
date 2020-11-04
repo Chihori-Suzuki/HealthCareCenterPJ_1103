@@ -1,15 +1,18 @@
 package ca.healthcare.project;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Appointment {
 	private Patient patient;
 	private LocalDate appointmentDate;
+	private LocalTime appointmentTime;
 	
-	public Appointment(Patient patient, LocalDate appointmentDate) {
+	public Appointment(Patient patient, LocalDate appointmentDate, LocalTime appointmentTime) {
 //		super();
 		this.patient = patient;
 		this.appointmentDate = appointmentDate;
+		this.appointmentTime = appointmentTime;
 	}
 	/**
 	 * @return the patient
