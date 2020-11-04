@@ -130,7 +130,7 @@ public class HealthCenter {
 					d = checkDoctorId(doctorId, doctors);
 					if (!d.equals(null)) break;// Check the Doctor ID
 				}
-				d.getAppointment().add(patientApp);
+				d.getAppointment().add(patientApp); //add the Appointment
 				System.out.println(d.toString()); //incorect
 				
 				break;
